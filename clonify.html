@@ -12,7 +12,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
         body{
-            background-color: lightpink;
+            background-color: antiquewhite;
         }
 
         *{
@@ -29,7 +29,7 @@
             align-items: center;
             list-style-type: none;
             height: 65px;
-            background-color: violet;
+            background-color: #12d138;
             color: white;
         }
 
@@ -71,7 +71,7 @@
         .bottom{
             position: sticky;
             height: 100px;
-            background-color: hotpink;
+            background-color: Black;
             color: white;
             bottom: 0;
             display: flex;
@@ -100,13 +100,13 @@
         .songItem{
             height: 50px;
             display: flex;
-            background-color: blueviolet;
+            background-color: Black;
             color: white;
             margin: 12px 0;
             justify-content: space-between;
             align-items: center;
             border-radius: 34px;
-            opacity: 90%;
+            opacity: 100%;
         }
 
         .songItem img{
@@ -138,7 +138,7 @@
 
         @media only screen and (max-width: 1100px) {
     body {
-      background-color: pink;
+      background-color: black;
     }
   }
     </style>
@@ -198,6 +198,8 @@
                 <div class="songItem"><img alt="1"><span class="songName">Prada</span><span class="songlistplay"><span class="timestamp"> <i id="38" class="far songItemPlay fa-2x fa-play-circle"></i></span></span></div>
                 <div class="songItem"><img alt="1"><span class="songName">Don't Worry</span><span class="songlistplay"><span class="timestamp"> <i id="39" class="far songItemPlay fa-2x fa-play-circle"></i></span></span></div>
                 <div class="songItem"><img alt="1"><span class="songName">Choorhey Wali Bahh</span><span class="songlistplay"><span class="timestamp"> <i id="40" class="far songItemPlay fa-2x fa-play-circle"></i></span></span></div>
+                <div class="songItem"><img alt="1"><span class="songName">Aaj Unse Milna Hai</span><span class="songlistplay"><span class="timestamp"> <i id="41" class="far songItemPlay fa-2x fa-play-circle"></i></span></span></div>
+                <div class="songItem"><img alt="1"><span class="songName">Saat Samundar Paar</span><span class="songlistplay"><span class="timestamp"> <i id="42" class="far songItemPlay fa-2x fa-play-circle"></i></span></span></div>
             </div>
         </div>
         <div class="songBanner"></div>        
@@ -212,7 +214,7 @@
            <i class="fas fa-3x fa-step-forward" id="next"></i>
         </div>  
         <div class="songInfo">
-            <img src="https://i.gifer.com/VeC.gif" width="95px" alt="" id="gif">
+            <img src="https://i.gifer.com/19xx.gif" width="85px" alt="" id="gif">
         </div>     
     </div>
 
@@ -272,6 +274,8 @@
             {songName: "Prada", filepath: "songs/39.mp3", coverPath: "covers/cover39.jpg"},
             {songName: "Don't Worry", filepath: "songs/40.mp3", coverPath: "covers/cover40.jpg"},
             {songName: "Choorhey Wali Bahh", filepath: "songs/41.mp3", coverPath: "covers/cover41.jpg"},
+            {songName: "Aaj Unse Milna Hai", filepath: "songs/42.mp3", coverPath: "covers/cover42.jpg"},
+            {songName: "Saat Samundar Paar", filepath: "songs/43.mp3", coverPath: "covers/cover43.jpg"},
         ]
         
         songItems.forEach((element, i)=>{ 
