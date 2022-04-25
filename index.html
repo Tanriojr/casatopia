@@ -154,24 +154,9 @@ a:hover, a:active {
     <script src=
 "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     </script>
-     
-      <script>
-     
-    /* Add "https://api.ipify.org?format=json" statement
-               this will communicate with the ipify servers in
-               order to retrieve the IP address $.getJSON will
-               load JSON-encoded data from the server using a
-               GET HTTP request */
-                
-    $.getJSON("https://api.ipify.org?format=json", function(data) {
-         
-        // Setting text of element P with id gfg
-        $("#gfg").html(data.ip);
-    })
-    </script>
-
-    	<div id="gfg"></div>
+    	<p id="gfg">
     </div>
+	
 <!-- The Band Section -->
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
 	  <h1 class="w3-jumbo w3-animate-top"><font color="black">CASATOPIA</font></h1>
@@ -249,6 +234,18 @@ function checkTime(i) {
     return i;
 }
 	let result = text.fontcolor("white");
+	
+	    /* Add "https://api.ipify.org?format=json" statement
+               this will communicate with the ipify servers in
+               order to retrieve the IP address $.getJSON will
+               load JSON-encoded data from the server using a
+               GET HTTP request */
+                
+    $.getJSON("https://api.ipify.org?format=json", function(data) {
+         
+        // Setting text of element P with id gfg
+        $("#gfg").html(data.ip);
+    })
 
 </script>
 </body>
