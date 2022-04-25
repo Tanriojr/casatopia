@@ -34,7 +34,7 @@ body {
 	margin: 0;
 	font-family: Arial, Helvetica, sans-serif;
     background-image: url('');
-    background-color: #4A148C;
+    background-color: #fff;
   background-repeat: no-repeat;
     background-size: cover;
 }
@@ -108,66 +108,6 @@ a:hover, a:active {
     object-fit: center;
 }
 
-.bubbles img {
-  width: 50px;
-  animation: bubble 7s linear infinite;
-      box-shadow: 120px 80px 40px 20px #B026FF;
-    /* in order: x offset, y offset, blur size, spread size, color */
-    /* blur size and spread size are optional (they default to 0) */
-}
-
-.bubbles{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  position: absolute;
-  bottom: -2000px;
-}
-
-@keyframes bubble{
-  0%{
-    transform: translateY(0);
-    opacity: 0;
-  }
-  50%{
-    opacity: 1;
-  }
-  70%{
-    opacity: 1;
-  }
-  100%{
-    transform: translateY(-370vh);
-    opacity: 0;
-  }
-}
-
-.bubbles img:nth-child(1){
-  animation-delay: 2.5s;
-  width: 25px;
-}
-.bubbles img:nth-child(2){
-  animation-delay: 1s;
-}
-.bubbles img:nth-child(3){
-  animation-delay: 3s;
-  width: 25px;
-}
-.bubbles img:nth-child(4){
-  animation-delay: 4.5s;
-}
-.bubbles img:nth-child(5){
-  animation-delay: 3.5s;
-}
-.bubbles img:nth-child(6){
-  animation-delay: 4s;
-  width: 20px;
-}
-.bubbles img:nth-child(7){
-  animation-delay: 2.93s;
-  width: 35px;
-}
-
 </style>
 </head>
 <body bgcolor="black" onload="startTime()">
@@ -185,26 +125,33 @@ a:hover, a:active {
 	
 </div>
 
-<!-- Wide Video -->
-<img src="f813080b07496e460f9709ab33f0173d.jpg" class="center">
-<video loop muted autoplay="Earth.mp4" class="video-player" style="width: 100%;"><source src="Earth.mp4" type="video/mp4"></video>
+<!-- Wide Image -->
+<img src="Lion.jpg" class="center">
+	
+	<br>
+	<br>
+	<br>
 
 <!-- Background Audio Audio -->
 <div class="w3-center">
 <audio src="rage_book_the_rental_wit_it_-8409159339446413638.mp3" controls autoplay loop></audio>
 </div>
-
+	
+<br>
+	<br>
+	<br>
+	
 <!-- Clock -->
 <div class="w3-xxxlarge w3-center w3-transparent" id="txt">
-	<font color="white"></font>
+	<font color="black"></font>
 </div>
 
 <!-- The Band Section -->
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-	  <h1 class="w3-jumbo w3-animate-top"><font color="white">CASATOPIA</font></h1>
-    <p class="w3-opacity"><i><font color="white">WE CONNECTS YOU WITH ALL</font></i></p>
+	  <h1 class="w3-jumbo w3-animate-top"><font color="black">CASATOPIA</font></h1>
+    <p class="w3-opacity"><i><font color="black">WE CONNECTS YOU WITH ALL</font></i></p>
     <p class="w3-justify" >
-      <font color="white" size="5.9px">
+      <font color="black" size="5.9px">
       We have created a fictional website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed tempor and vitality, so that the labor and sorrow, some important things to do eiusmod. Over the years, I will come, who will nostrud aliquip out of her the advantage of exercise, so that stimulus efforts if the school district and longevity. Want to be a pain in the cupidatat cillum has been criticized in the Duis et dolore magna flee produces no resultant pleasure. Excepteur cupidatat blacks are not excepteur, is soothing to the soul, that is my toil, they deserted the general duties of those who are at fault, consectetur adipiscing elit, sed tempor and vitality, so that the labor and sorrow, some important things to do eiusmod. Over the years, I will come, who will nostrud aliquip out of her the advantage of exercise, so that stimulus efforts if the school district and longevity.
     </font>
 </div>
@@ -278,16 +225,5 @@ function checkTime(i) {
 	let result = text.fontcolor("white");
 
 </script>
-
-	<div class="bubbles">
-  <img src="bubble.png">
-  <img src="bubble.png">
-  <img src="bubble.png">
-  <img src="bubble.png">
-  <img src="bubble.png">
-  <img src="bubble.png">
-  <img src="bubble.png">
- </div>
-
 </body>
 </html>
