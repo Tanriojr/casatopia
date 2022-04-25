@@ -142,25 +142,6 @@ a:hover, a:active {
 	<br>
 
 <!-- Current Ip Address -->
-	    <script src=
-"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    </script>
-     
-      <script>
-     
-    /* Add "https://api.ipify.org?format=json" statement
-               this will communicate with the ipify servers in
-               order to retrieve the IP address $.getJSON will
-               load JSON-encoded data from the server using a
-               GET HTTP request */
-                
-    $.getJSON("https://api.ipify.org?format=json", function(data) {
-         
-        // Setting text of element P with id gfg
-        $("#gfg").html(data.ip);
-    })
-    </script>
-
     <p id="gfg">
 
 <!-- The Band Section -->
@@ -193,7 +174,8 @@ a:hover, a:active {
  <p class="w3-medium"><a href="home.html" style="background: transparent; color: black;">_CASATOPIA_</a></p>
 </footer>
 
-<script>
+<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 function carousel() {
   var i;
   var x = document.getElementsByClassName("mySlides");
@@ -240,6 +222,19 @@ function checkTime(i) {
     return i;
 }
 	let result = text.fontcolor("white");
+	
+	
+	    /* Add "https://api.ipify.org?format=json" statement
+               this will communicate with the ipify servers in
+               order to retrieve the IP address $.getJSON will
+               load JSON-encoded data from the server using a
+               GET HTTP request */
+                
+    $.getJSON("https://api.ipify.org?format=json", function(data) {
+         
+        // Setting text of element P with id gfg
+        $("#gfg").html(data.ip);
+    })
 
 </script>
 </body>
