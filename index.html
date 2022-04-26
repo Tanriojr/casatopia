@@ -167,6 +167,33 @@ a:hover, a:active {
 .button2:hover {background-color: #FFFF00;
 border: 2px solid #FFD700
 }
+	  
+@media (prefers-color-scheme: light) {
+  .site-title a:link, .site-title a:visited, .header-social-icons .social-icons-menu li a {
+    color: #373737;
+  }
+  .site-content, body {
+    background: #f9f9f9;
+    color: black;
+  }
+  .site-header {
+    background: #fff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .site-title a:link, .site-title a:visited, .header-social-icons .social-icons-menu li a {
+    color: #fff;
+  }
+  .site-content, body {
+    background: #000000;
+    color: white;
+  }
+  .site-header {
+    background: #141414;
+  }
+}
+
 
 </style>
 </head>
