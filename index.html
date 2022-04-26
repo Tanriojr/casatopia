@@ -124,6 +124,40 @@ a:hover, a:active {
     height: 100%;
     object-fit: center;
 }
+	  
+.button {
+  padding: 11px 48px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #fff;
+}
+
+.button1:hover {
+  background-color: #000000;
+  color: white;
+    border: 2px solid #696969;
+}
+
+.button2 {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+}
+
+.button2:hover {background-color: #FFFF00;
+border: 2px solid #FFD700
+}
+
 
 </style>
 </head>
@@ -139,6 +173,8 @@ a:hover, a:active {
         <a href="regestrationform.html"><i class="fa fa-sign-in" aria-hidden="true"></i> REGESTRATION FORM</a>
 	       <a href="clonify.html"><img src="animatedgif.gif" style="width: 30px; height: 27px;"> Music </a>
 	<a href="https://opensea.io/Tanriojr"><img src="https://i.gifer.com/4Jnt.gif" style="width: 30px; height: 27px;"> NFT </a>
+	      <button onclick="darkMode()" class="button button1"><i class="fa fa-moon-o"></i></button>
+    <button onclick="lightMode()" class="button button2"><i class="fa fa-sun-o"></i></button>
 	
 </div>
 
@@ -151,8 +187,7 @@ a:hover, a:active {
 	
 <!-- Clock -->
 <div class="w3-xxxlarge w3-center w3-transparent" id="txt">
-	<font color="black"></font>
-</div>
+	</div>
 
 	<br>
 	<br>
@@ -187,10 +222,10 @@ a:hover, a:active {
 
 <!-- The Band Section -->
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-	  <h1 class="w3-jumbo w3-animate-top"><font color="black">CASATOPIA</font></h1>
-    <p class="w3-opacity"><i><font color="black">WE CONNECTS YOU WITH ALL</font></i></p>
+	  <h1 class="w3-jumbo w3-animate-top">CASATOPIA</h1>
+    <p class="w3-opacity"><i>The No. 1 Or Only The 1</i></p>
     <p class="w3-justify" >
-      <font color="black" size="5.9px">
+      <font size="5.9px">
       We have created a fictional website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed tempor and vitality, so that the labor and sorrow, some important things to do eiusmod. Over the years, I will come, who will nostrud aliquip out of her the advantage of exercise, so that stimulus efforts if the school district and longevity. Want to be a pain in the cupidatat cillum has been criticized in the Duis et dolore magna flee produces no resultant pleasure. Excepteur cupidatat blacks are not excepteur, is soothing to the soul, that is my toil, they deserted the general duties of those who are at fault, consectetur adipiscing elit, sed tempor and vitality, so that the labor and sorrow, some important things to do eiusmod. Over the years, I will come, who will nostrud aliquip out of her the advantage of exercise, so that stimulus efforts if the school district and longevity.
     </font>
 </div>
@@ -259,11 +294,27 @@ function startTime() {
     h + ":" + m + ":" + s;
     var t = setTimeout(startTime, 500);
 }
+
 function checkTime(i) {
     if (i < 10) {i = "0" + i}; // add zero in frnt of number < 10
     return i;
 }
-	let result = text.fontcolor("white");
+
+let result = text.fontcolor("white");
+	
+function darkMode() {
+        var element = document.body;
+        var content = document.getElementById("DarkModetext");
+        element.className = "dark-mode";
+        content.innerText = "Dark Mode is ON";
+}
+function lightMode() {
+        var element = document.body;
+        var content = document.getElementById("DarkModetext");
+        element.className = "light-mode";
+        content.innerText = "Dark Mode is OFF";
+}
+
 </script>
 </body>
 </html>
