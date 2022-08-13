@@ -212,7 +212,25 @@ border: 2px solid #000;
 </div>
 
 <!-- Wide Image -->
-<img src="Lion.jpg" class="center">
+  <img class="mySlides" src="https://images.wallpapersden.com/image/download/glowing-mushroom-hd_bWVna2mUmZqaraWkpJRmaGhrrWxrbQ.jpg" style="width:100%">
+  <img class="mySlides" src="https://www.teahub.io/photos/full/284-2845839_mushroom-wallpaper-4k.jpg" style="width:100%">
+  <img class="mySlides" src="https://images.wallpapersden.com/image/download/glowing-mushroom_bG5uaWiUmZqaraWkpJRnZWltrWZobWk.jpg" style="width:100%">
+	<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2500);
+}
+</script>
 	
 <br>
 	<br>
