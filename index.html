@@ -211,33 +211,275 @@ border: 2px solid #000;
 	
 </div>
 
-<!-- Wide Image -->
-	  <img class="mySlides" src="https://www.xtrafondos.com/en/descargar.php?id=7994&resolucion=3840x2160" style="width:100%" class="w3-centre">
-  <img class="mySlides" src="https://images.hdqwalls.com/download/cover-corp-hololive-4k-ow-1366x768.jpg" style="width:100%" class="w3-centre">
-  <img class="mySlides" src="https://images7.alphacoders.com/688/thumb-1920-688772.jpg" style="width:100%" class="w3-centre">
-	<img class="mySlides" src="https://i.pinimg.com/originals/92/4e/bc/924ebcbe42d2da3153e0f05532e2d955.jpg" style="width:100%" class="w3-centre">
-  <img class="mySlides" src="https://images.alphacoders.com/115/thumb-1920-1157190.jpg" style="width:100%" class="w3-centre">
-	  <img class="mySlides" src="https://www.xtrafondos.com/en/descargar.php?id=7554&resolucion=3840x2160" style="width:100%" class="w3-centre">
-	<img class="mySlides" src="https://images.hdqwalls.com/download/pirate-devil-girl-4k-qf-1920x1080.jpg" style="width:100%" class="w3-centre">
-		<img class="mySlides" src="https://www.xtrafondos.com/en/descargar.php?id=6718&resolucion=3840x2160" style="width:100%" class="w3-centre">
-	<img class="mySlides" src="https://images.hdqwalls.com/download/anime-girl-white-hairs-green-eyes-5k-zh-1920x1080.jpg" style="width:100%" class="w3-centre">
-		<img class="mySlides" src="https://i.pinimg.com/originals/20/c1/a5/20c1a5ed681ee4aa7047a1aea5ae703e.jpg" style="width:100%" class="w3-centre">
-	<script>
-var myIndex = 0;
-carousel();
+<!-- Background image-->
+<style>
+$items: 4;
+$animation-time: 19s;
+$transition-time: 10.5s;
+$scale: 20%;
 
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 5000);
+$total-time: ($animation-time * $items);
+$scale-base-1: (1 + $scale / 100%);
+/*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%
 }
-</script>
+
+body { margin: 0 }
+
+
+/* main css */
+
+.slideshow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 30%;
+}
+
+.slideshow-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: no-repeat 50% 50%;
+  background-size: cover;
+  -webkit-animation-name: kenburns;
+  animation-name: kenburns;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-duration: 16s;
+  animation-duration: 16s;
+  opacity: 1;
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.slideshow-image:nth-child(1) {
+  -webkit-animation-name: kenburns-1;
+  animation-name: kenburns-1;
+  z-index: 3;
+}
+
+.slideshow-image:nth-child(2) {
+  -webkit-animation-name: kenburns-2;
+  animation-name: kenburns-2;
+  z-index: 2;
+}
+
+.slideshow-image:nth-child(3) {
+  -webkit-animation-name: kenburns-3;
+  animation-name: kenburns-3;
+  z-index: 1;
+}
+
+.slideshow-image:nth-child(4) {
+  -webkit-animation-name: kenburns-4;
+  animation-name: kenburns-4;
+  z-index: 0;
+}
+ @-webkit-keyframes 
+kenburns-1 {  0% {
+ opacity: 1;
+ -webkit-transform: scale(1.2);
+ transform: scale(1.2);
+}
+ 1.5625% {
+ opacity: 1;
+}
+ 23.4375% {
+ opacity: 1;
+}
+ 26.5625% {
+ opacity: 0;
+ -webkit-transform: scale(1);
+ transform: scale(1);
+}
+ 100% {
+ opacity: 0;
+ -webkit-transform: scale(1.2);
+ transform: scale(1.2);
+}
+ 98.4375% {
+ opacity: 0;
+ -webkit-transform: scale(1.21176);
+ transform: scale(1.21176);
+}
+ 100% {
+ opacity: 1;
+}
+}
+ @keyframes 
+kenburns-1 {  0% {
+ opacity: 1;
+ -webkit-transform: scale(1.2);
+ transform: scale(1.2);
+}
+ 1.5625% {
+ opacity: 1;
+}
+ 23.4375% {
+ opacity: 1;
+}
+ 26.5625% {
+ opacity: 0;
+ -webkit-transform: scale(1);
+ transform: scale(1);
+}
+ 100% {
+ opacity: 0;
+ -webkit-transform: scale(1.2);
+ transform: scale(1.2);
+}
+ 98.4375% {
+ opacity: 0;
+ -webkit-transform: scale(1.21176);
+ transform: scale(1.21176);
+}
+ 100% {
+ opacity: 1;
+}
+}
+@-webkit-keyframes 
+kenburns-2 {  23.4375% {
+ opacity: 1;
+ -webkit-transform: scale(1.2);
+ transform: scale(1.2);
+}
+ 26.5625% {
+ opacity: 1;
+}
+ 48.4375% {
+ opacity: 1;
+}
+ 51.5625% {
+ opacity: 0;
+ -webkit-transform: scale(1);
+ transform: scale(1);
+}
+ 100% {
+ opacity: 0;
+ -webkit-transform: scale(1.2);
+ transform: scale(1.2);
+}
+}
+@keyframes 
+kenburns-2 {  23.4375% {
+ opacity: 1;
+ -webkit-transform: scale(1.2);
+ transform: scale(1.2);
+}
+ 26.5625% {
+ opacity: 1;
+}
+ 48.4375% {
+ opacity: 1;
+}
+ 51.5625% {
+ opacity: 0;
+ -webkit-transform: scale(1);
+ transform: scale(1);
+}
+ 100% {
+ opacity: 0;
+ -webkit-transform: scale(1.2);
+ transform: scale(1.2);
+}
+}
+@-webkit-keyframes 
+kenburns-3 {  48.4375% {
+ opacity: 1;
+ -webkit-transform: scale(1.2);
+ transform: scale(1.2);
+}
+ 51.5625% {
+ opacity: 1;
+}
+ 73.4375% {
+ opacity: 1;
+}
+ 76.5625% {
+ opacity: 0;
+ -webkit-transform: scale(1);
+ transform: scale(1);
+}
+ 100% {
+ opacity: 0;
+ -webkit-transform: scale(1.2);
+ transform: scale(1.2);
+}
+}
+@keyframes 
+kenburns-3 {  48.4375% {
+ opacity: 1;
+ -webkit-transform: scale(1.2);
+ transform: scale(1.2);
+}
+ 51.5625% {
+ opacity: 1;
+}
+ 73.4375% {
+ opacity: 1;
+}
+ 76.5625% {
+ opacity: 0;
+ -webkit-transform: scale(1);
+ transform: scale(1);
+}
+ 100% {
+ opacity: 0;
+ -webkit-transform: scale(1.2);
+ transform: scale(1.2);
+}
+}
+@-webkit-keyframes 
+kenburns-4 {  73.4375% {
+ opacity: 1;
+ -webkit-transform: scale(1.2);
+ transform: scale(1.2);
+}
+ 76.5625% {
+ opacity: 1;
+}
+ 98.4375% {
+ opacity: 1;
+}
+ 100% {
+ opacity: 0;
+ -webkit-transform: scale(1);
+ transform: scale(1);
+}
+}
+@keyframes 
+kenburns-4 {  73.4375% {
+ opacity: 1;
+ -webkit-transform: scale(1.2);
+ transform: scale(1.2);
+}
+ 76.5625% {
+ opacity: 1;
+}
+ 98.4375% {
+ opacity: 1;
+}
+ 100% {
+ opacity: 0;
+ -webkit-transform: scale(1);
+ transform: scale(1);
+}
+}
+
+</style>
+
+<div class="slideshow">
+  <div class="slideshow-image" style="background-image: url('https://www.xtrafondos.com/en/descargar.php?id=7994&resolucion=3840x2160')"></div>
+  <div class="slideshow-image" style="background-image: url('https://images.hdqwalls.com/download/cover-corp-hololive-4k-ow-1366x768.jpg')"></div>
+  <div class="slideshow-image" style="background-image: url('https://images7.alphacoders.com/688/thumb-1920-688772.jpg')"></div>
+    <div class="slideshow-image" style="background-image: url('https://i.pinimg.com/originals/20/c1/a5/20c1a5ed681ee4aa7047a1aea5ae703e.jpg')"></div>
+</div>
 	
 <br>
 	<br>
@@ -282,27 +524,23 @@ function carousel() {
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
 	  <h1 class="w3-jumbo w3-animate-top">CASATOPIA</h1>
     <p class="w3-opacity"><i>WE CONNECTS YOU WITH ALL</i></p>
-    <p class="w3-justify" >
-      <font  size="5.9px">
-      We have created a fictional website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed tempor and vitality, so that the labor and sorrow, some important things to do eiusmod. Over the years, I will come, who will nostrud aliquip out of her the advantage of exercise, so that stimulus efforts if the school district and longevity. Want to be a pain in the cupidatat cillum has been criticized in the Duis et dolore magna flee produces no resultant pleasure. Excepteur cupidatat blacks are not excepteur, is soothing to the soul, that is my toil, they deserted the general duties of those who are at fault, consectetur adipiscing elit, sed tempor and vitality, so that the labor and sorrow, some important things to do eiusmod. Over the years, I will come, who will nostrud aliquip out of her the advantage of exercise, so that stimulus efforts if the school district and longevity.
-    </font>
 </div>
 
 <!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-<a href="https://www.google.com/" style="background: transparent; color: black;"><i class="fa fa-google w3-hover-opacity"></i></a>
-<a href="https://youtube.com/channel/UCMsR6mfoY9yzny5tVC7F6og" style="background: transparent; color: black;"><i class="fa fa-youtube w3-hover-opacity"></i></a>
-<a href="https://www.facebook.com/" style="background: transparent; color: black;"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
-<a href="https://www.instagram.com/tanriojr" style="background: transparent; color: black;"><i class="fa fa-instagram w3-hover-opacity"></i></a>
-<a href="https://www.whatsapp.com/?lang=en" style="background: transparent; color: black;"><i class="fa fa-whatsapp w3-hover-opacity"></i></a>
-<a href="https://discord.com/" style="background: transparent; color: black;"><i class="fa fa-cloud w3-hover-opacity"></i></a>
-<a href="https://store.steampowered.com/" style="background: transparent; color: black;"><i class="fa fa-steam w3-hover-opacity"></i></a>
-<a href="https://www.snapchat.com/" style="background: transparent; color: black;"><i class="fa fa-snapchat w3-hover-opacity"></i></a>
-<a href="https://in.pinterest.com/" style="background: transparent; color: black;"><i class="fa fa-pinterest-p w3-hover-opacity"></i></a>
-<a href="https://www.reddit.com/" style="background: transparent; color: black;"><i class="fa fa-reddit w3-hover-opacity"></i></a>
-<a href="https://twitter.com/tanriojr" style="background: transparent; color: black;"><i class="fa fa-twitter w3-hover-opacity"></i></a>
-<a href="https://www.linkedin.com/" style="background: transparent; color: black;"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
- <p class="w3-medium"><a href="about.html" style="background: transparent; color: black;">_CASATOPIA_</a></p>
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-xlarge">
+<a href="https://www.google.com/" style="background: transparent; color: #04FF63 ;"><i class="fa fa-google w3-hover-opacity"></i></a>
+<a href="https://youtube.com/channel/UCMsR6mfoY9yzny5tVC7F6og" style="background: transparent; color: red;"><i class="fa fa-youtube w3-hover-opacity"></i></a>
+<a href="https://www.facebook.com/" style="background: transparent; color: blue;"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+<a href="https://www.instagram.com/ig.casatopia" style="background: transparent; color: #CE04FF ;"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+<a href="https://www.whatsapp.com/?lang=en" style="background: transparent; color: #0BF307;"><i class="fa fa-whatsapp w3-hover-opacity"></i></a>
+<a href="https://discord.com/" style="background: transparent; color: grey;"><i class="fa fa-cloud w3-hover-opacity"></i></a>
+<a href="https://store.steampowered.com/" style="background: transparent; color: #0A7EB8;"><i class="fa fa-steam w3-hover-opacity"></i></a>
+<a href="https://www.snapchat.com/" style="background: transparent; color: yellow;"><i class="fa fa-snapchat w3-hover-opacity"></i></a>
+<a href="https://in.pinterest.com/" style="background: transparent; color: orange;"><i class="fa fa-pinterest-p w3-hover-opacity"></i></a>
+<a href="https://www.reddit.com/" style="background: transparent; color: #F36407 ;"><i class="fa fa-reddit w3-hover-opacity"></i></a>
+<a href="https://twitter.com/tanriojr" style="background: transparent; color: #07F3E4;"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+<a href="https://www.linkedin.com/" style="background: transparent; color: blue;"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+ <p class="w3-medium"><a href="about.html" style="background: transparent; color: #FF04C6 ;">_CASATOPIA_</a></p>
 </footer>
 
 <!-- Image of location/map -->
@@ -374,6 +612,7 @@ function checkTime(i) {
         element.className = "light-mode";
         content.innerText = "Dark Mode is OFF";
       }
+      
 
 </script>
 </body>
