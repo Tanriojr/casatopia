@@ -71,22 +71,19 @@ body {
 }
 
 .topnav a {
-	float: left;
-	display: block;
-	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
 	font-size: 20px;
 }
 
 .topnav a:hover {
-	background-color: #ddd;
-	color: black;
+	background-color: ;
+	color: grey;
 }
 
 .topnav a.active {
 	background-color: #2196F3
-	color= #ddd;
+	color: white; 
 }
 
 .topnav input[type=text] {
@@ -120,6 +117,10 @@ a:link, a:visited {
   text-decoration: none;
   display: inline-block;
   transition: right;
+border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
 
 a:hover, a:active {
@@ -141,6 +142,10 @@ a:hover, a:active {
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
 
 .button1 {
@@ -198,289 +203,22 @@ border: 2px solid #000;
 
 <!-- Navigation Bar Section -->
 <div class="topnav">
-		<a class="active" href="index.html"><i class="fa fa-home" aria-hidden="true"></i> HOME</a>
-	<a href="about.html"><i class="fa fa-user-circle" aria-hidden="true"></i> ABOUT</a>
-		<a href="contact.html"><i class="fa fa-envelope" aria-hidden="true"></i> CONTACT</a>
-	<a href="FAQs.html"><i class="fa fa-quora" aria-hidden="true"></i> FAQs</a>
-		<a href="account login.html"><i class="fa fa-sign-in" aria-hidden="true"></i> LOGIN</a>
-          <a href="regestrationform.html"><i class="fa fa-sign-in" aria-hidden="true"></i> REGESTRATION FORM</a>
-	       <a href="clonify.html"><img src="animatedgif.gif" style="width: 30px; height: 27px;"> Music </a>
-	<a href="https://opensea.io/Tanriojr"><img src="https://i.gifer.com/4Jnt.gif" style="width: 30px; height: 27px;"> NFT </a>
-          	<button onclick="darkMode()" class="button button1"><i class="fa fa-moon-o"></i></button>
-     <button onclick="lightMode()" class="button button2"><i class="fa fa-sun-o"></i></button>
+		<a class="active" href="index.html"><i class="fa fa-apple" aria-hidden="true"></i></a>
+	<a href="about.html"><i class="fa fa-user-circle" aria-hidden="true"></i></a>
+		<a href="contact.html"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+	<a href="FAQs.html"><i class="fa fa-cc-visa" aria-hidden="true"></i></a>
+		<a href="account login.html"><i class="fa fa-desktop" aria-hidden="true"></i></a>
+	       <a href="clonify.html"><i class="fa fa-spotify" aria-hidden="true"></i></a>
+	<a href="https://opensea.io/Tanriojr"><i class="fa fa-safari" aria-hidden="true"></i></a>
+
 	
 </div>
 
-<!-- Background image-->
-<style>
-$items: 4;
-$animation-time: 19s;
-$transition-time: 10.5s;
-$scale: 20%;
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="w3-image" src="amongus.jpg" width="1600" height="800">
+</header>
 
-$total-time: ($animation-time * $items);
-$scale-base-1: (1 + $scale / 100%);
-/*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */html {
-  font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%
-}
-
-body { margin: 0 }
-
-
-/* main css */
-
-.slideshow {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  opacity: 20%;
-}
-
-.slideshow-image {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: no-repeat 50% 50%;
-  background-size: cover;
-  -webkit-animation-name: kenburns;
-  animation-name: kenburns;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-duration: 16s;
-  animation-duration: 16s;
-  opacity: 1;
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
-}
-
-.slideshow-image:nth-child(1) {
-  -webkit-animation-name: kenburns-1;
-  animation-name: kenburns-1;
-  z-index: 3;
-}
-
-.slideshow-image:nth-child(2) {
-  -webkit-animation-name: kenburns-2;
-  animation-name: kenburns-2;
-  z-index: 2;
-}
-
-.slideshow-image:nth-child(3) {
-  -webkit-animation-name: kenburns-3;
-  animation-name: kenburns-3;
-  z-index: 1;
-}
-
-.slideshow-image:nth-child(4) {
-  -webkit-animation-name: kenburns-4;
-  animation-name: kenburns-4;
-  z-index: 0;
-}
- @-webkit-keyframes 
-kenburns-1 {  0% {
- opacity: 1;
- -webkit-transform: scale(1.2);
- transform: scale(1.2);
-}
- 1.5625% {
- opacity: 1;
-}
- 23.4375% {
- opacity: 1;
-}
- 26.5625% {
- opacity: 0;
- -webkit-transform: scale(1);
- transform: scale(1);
-}
- 100% {
- opacity: 0;
- -webkit-transform: scale(1.2);
- transform: scale(1.2);
-}
- 98.4375% {
- opacity: 0;
- -webkit-transform: scale(1.21176);
- transform: scale(1.21176);
-}
- 100% {
- opacity: 1;
-}
-}
- @keyframes 
-kenburns-1 {  0% {
- opacity: 1;
- -webkit-transform: scale(1.2);
- transform: scale(1.2);
-}
- 1.5625% {
- opacity: 1;
-}
- 23.4375% {
- opacity: 1;
-}
- 26.5625% {
- opacity: 0;
- -webkit-transform: scale(1);
- transform: scale(1);
-}
- 100% {
- opacity: 0;
- -webkit-transform: scale(1.2);
- transform: scale(1.2);
-}
- 98.4375% {
- opacity: 0;
- -webkit-transform: scale(1.21176);
- transform: scale(1.21176);
-}
- 100% {
- opacity: 1;
-}
-}
-@-webkit-keyframes 
-kenburns-2 {  23.4375% {
- opacity: 1;
- -webkit-transform: scale(1.2);
- transform: scale(1.2);
-}
- 26.5625% {
- opacity: 1;
-}
- 48.4375% {
- opacity: 1;
-}
- 51.5625% {
- opacity: 0;
- -webkit-transform: scale(1);
- transform: scale(1);
-}
- 100% {
- opacity: 0;
- -webkit-transform: scale(1.2);
- transform: scale(1.2);
-}
-}
-@keyframes 
-kenburns-2 {  23.4375% {
- opacity: 1;
- -webkit-transform: scale(1.2);
- transform: scale(1.2);
-}
- 26.5625% {
- opacity: 1;
-}
- 48.4375% {
- opacity: 1;
-}
- 51.5625% {
- opacity: 0;
- -webkit-transform: scale(1);
- transform: scale(1);
-}
- 100% {
- opacity: 0;
- -webkit-transform: scale(1.2);
- transform: scale(1.2);
-}
-}
-@-webkit-keyframes 
-kenburns-3 {  48.4375% {
- opacity: 1;
- -webkit-transform: scale(1.2);
- transform: scale(1.2);
-}
- 51.5625% {
- opacity: 1;
-}
- 73.4375% {
- opacity: 1;
-}
- 76.5625% {
- opacity: 0;
- -webkit-transform: scale(1);
- transform: scale(1);
-}
- 100% {
- opacity: 0;
- -webkit-transform: scale(1.2);
- transform: scale(1.2);
-}
-}
-@keyframes 
-kenburns-3 {  48.4375% {
- opacity: 1;
- -webkit-transform: scale(1.2);
- transform: scale(1.2);
-}
- 51.5625% {
- opacity: 1;
-}
- 73.4375% {
- opacity: 1;
-}
- 76.5625% {
- opacity: 0;
- -webkit-transform: scale(1);
- transform: scale(1);
-}
- 100% {
- opacity: 0;
- -webkit-transform: scale(1.2);
- transform: scale(1.2);
-}
-}
-@-webkit-keyframes 
-kenburns-4 {  73.4375% {
- opacity: 1;
- -webkit-transform: scale(1.2);
- transform: scale(1.2);
-}
- 76.5625% {
- opacity: 1;
-}
- 98.4375% {
- opacity: 1;
-}
- 100% {
- opacity: 0;
- -webkit-transform: scale(1);
- transform: scale(1);
-}
-}
-@keyframes 
-kenburns-4 {  73.4375% {
- opacity: 1;
- -webkit-transform: scale(1.2);
- transform: scale(1.2);
-}
- 76.5625% {
- opacity: 1;
-}
- 98.4375% {
- opacity: 1;
-}
- 100% {
- opacity: 0;
- -webkit-transform: scale(1);
- transform: scale(1);
-}
-}
-
-</style>
-
-<div class="slideshow">
-  <div class="slideshow-image" style="background-image: url('https://wallpaperaccess.com/full/21622.jpg')"></div>
-  <div class="slideshow-image" style="background-image: url('https://images.hdqwalls.com/download/cover-corp-hololive-4k-ow-1366x768.jpg')"></div>
-  <div class="slideshow-image" style="background-image: url('https://images7.alphacoders.com/688/thumb-1920-688772.jpg')"></div>
-  <div class="slideshow-image" style="background-image: url('https://wallpaperaccess.com/full/262908.jpg')"></div>
-</div>
-	
 <!-- Clock -->
 <div class="w3-xxxlarge w3-center w3-transparent" id="txt">
 </div>
@@ -518,8 +256,64 @@ kenburns-4 {  73.4375% {
     <p class="w3-opacity"><i>WE CONNECTS YOU WITH ALL</i></p>
 </div>
 
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+  <h3 class="w3-center">ABOUT THE COMPANY</h3>
+  <p class="w3-center w3-large">Key features of our company</p>
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-quarter">
+      <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+      <p class="w3-large">Responsive</p>
+  <p>Built-in responsiveness</p>
+  <p>Mobile first fluid grid</p>
+  <p>Fits any screen sizes</p>
+  <p>PC Tablet and Mobile</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Passion</p>
+      <p>We are here to gain the love of our every user</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Design</p>
+        <p>Paper like design</p>
+  <p>Bold colors and shadows</p>
+  <p>Equal across platforms</p>
+  <p>Equal across devices</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Support</p>
+      <p>Our support system is here for you 24x7</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- Promo Section "Statistics" -->
+<div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">14+</span>
+    <br>Social Partners
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge"><i class="fa fa-thumbs-up"></i></span>
+    <br>Positive Reviews
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge"><i class="fa fa-users"></i></span>
+    <br>Happy Clients
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">Infinite</span>
+    <br>Views
+  </div>
+</div>
+
 <!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-xlarge">
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-xlarge" style="padding:120px ">
 <a href="https://www.google.com/" style="background: transparent; color: #04FF63 ;"><i class="fa fa-google w3-hover-opacity"></i></a>
 <a href="https://youtube.com/channel/UCMsR6mfoY9yzny5tVC7F6og" style="background: transparent; color: red;"><i class="fa fa-youtube w3-hover-opacity"></i></a>
 <a href="https://www.facebook.com/" style="background: transparent; color: blue;"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
@@ -533,6 +327,9 @@ kenburns-4 {  73.4375% {
 <a href="https://twitter.com/tanriojr" style="background: transparent; color: #07F3E4;"><i class="fa fa-twitter w3-hover-opacity"></i></a>
 <a href="https://www.linkedin.com/" style="background: transparent; color: blue;"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
 </footer>
+
+<!-- W3.CSS Container -->
+<div class="w3-black w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Owner : Tanishq </p></div>
 
 <script>
 function carousel() {
