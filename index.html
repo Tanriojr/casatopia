@@ -566,13 +566,13 @@ body {
   opacity: var(--bar-opacity, 0);
 }
 .content .text:before {
-  content: "The Move";
+  content: "295";
   order: 1;
   text-transform: uppercase;
 }
 .content .text:after {
   order: 2;
-  content: "Space Rangers";
+  content: "Sidhu Moose Wala";
   opacity: 0.5;
 }
 .content .right {
@@ -739,8 +739,9 @@ body {
 }
 .app:nth-child(2):after {
   content: "Tanishq Singh";
-  font-weight: 500;
+  font-weight: 1000;
   margin-top: auto;
+  color: #000;
 }
 .app:nth-child(3) {
   --app-bg-s1: #a7f88f;
@@ -1457,16 +1458,477 @@ function saveGradient(e) {
 </script>
 	
 <!-- Center Image -->
-<img src="amongus.jpg" class="responsive" width="1600" height="800">	
+<script>
+    "use strict"; // Paul Slaymaker, paul25882@gmail.com
+const body=document.getElementsByTagName("body").item(0);
+body.style.background="#000";
 
+const TP=2*Math.PI;
+const CSIZE=400;
+
+const ctx=(()=>{
+  let d=document.createElement("div");
+  d.style.textAlign="center";
+  body.append(d);
+  let c=document.createElement("canvas");
+  c.width=2*CSIZE;
+  c.height=2*CSIZE;
+  d.append(c);
+  return c.getContext("2d");
+})();
+ctx.translate(CSIZE,CSIZE);
+ctx.lineCap="round";
+
+onresize=()=>{ 
+  let D=Math.min(window.innerWidth,window.innerHeight)-40; 
+  ctx.canvas.style.width=D+"px";
+  ctx.canvas.style.height=D+"px";
+}
+
+const getRandomInt=(min,max,low)=>{
+  if (low) return Math.floor(Math.random()*Math.random()*(max-min))+min;
+  else return Math.floor(Math.random()*(max-min))+min;
+}
+
+var Circle=function(x,y,xp,yp,radius,pc) {
+  this.x=x;
+  this.y=y;
+  this.xp=xp;
+  this.yp=yp;
+  this.radius=radius;
+  this.pc=pc;
+  this.c=[];
+  this.drawCircle=(rf)=>{
+    ctx.beginPath();
+      ctx.moveTo(this.x+this.radius*rf,this.y);
+      ctx.arc(this.x,this.y,this.radius*rf,0,TP);
+ctx.fillStyle="hsl("+(hue+5*this.radius)+",90%,50%)";
+    ctx.fill();
+  }
+}
+
+var Curve=function() {
+  this.car=[];
+  this.to=-getRandomInt(0,400);
+  this.addCurveCircle=(cir)=>{
+    if (cir.pc) {
+      this.car.unshift(cir.pc);
+      this.addCurveCircle(cir.pc);
+    } else {
+      return;
+    }
+  }
+  this.setPath=()=>{
+    this.len=0;
+    this.path=new Path2D();
+    this.path.moveTo(0,0);
+    this.path.lineTo(this.car[1].xp,this.car[1].yp);
+    this.len+=this.car[0].radius;
+    for (let i=1; i<this.car.length-1; i++) {
+      this.path.bezierCurveTo(this.car[i].x,this.car[i].y,
+                              this.car[i].x,this.car[i].y,
+                              this.car[i+1].xp,this.car[i+1].yp);
+      this.len+=2*this.car[i].radius;
+    }
+    this.path.lineTo(this.car[this.car.length-1].x,this.car[this.car.length-1].y);
+    this.len+=this.car[this.car.length-1].radius;
+  }
+  this.drawCurve=()=>{
+    let tt=this.to+t;
+    ctx.setLineDash([Math.max(1,tt),4000]);
+    ctx.stroke(this.path);
+    if (tt>this.len+40) {
+      this.car[this.car.length-1].drawCircle(0.8);
+      if (tt>this.len+120) return false;
+      else return true;
+    } else if (tt>this.len) {
+      let raf=0.8*(tt-this.len)/40;
+      this.car[this.car.length-1].drawCircle(raf);
+      return true;
+    } else {
+      return true;
+    }
+  }
+}
+
+var drawPoint=(x,y,col)=>{	// diag
+  ctx.beginPath();
+  ctx.arc(x,y,5,0,TP);
+  ctx.closePath();
+  if (col) ctx.fillStyle=col;
+  else ctx.fillStyle="red";
+  ctx.fill();
+}
+
+var cval=(x,y,rad)=>{
+  if (Math.pow(x*x+y*y,0.5)>CSIZE-rad) return false;
+  for (let i=0; i<ca.length; i++) {
+    let rt=rad+ca[i].radius;
+    let xd=ca[i].x-x;
+    let yd=ca[i].y-y;
+    if (Math.abs(xd)>rt) continue;
+    if (Math.abs(yd)>rt) continue;
+    if (Math.pow(xd*xd+yd*yd,0.5)+1<rt) {
+      return false;
+    }
+  }
+  return true;
+}
+
+var eg=Math.random()<0.3;
+
+var grow=(rad)=>{
+  let c=eg
+        ?ca[ca.length-1-getRandomInt(0,ca.length,true)]
+        :ca[getRandomInt(0,ca.length)];
+  let a=TP*Math.random();
+  let x=c.x+(c.radius+rad)*Math.cos(a);
+  let y=c.y+(c.radius+rad)*Math.sin(a);
+  if (cval(x,y,rad)) {
+    let xp=c.x+c.radius*Math.cos(a);
+    let yp=c.y+c.radius*Math.sin(a);
+    let circle=new Circle(x,y,xp,yp,rad,c);
+    c.c.push(circle);
+    ca.push(circle);
+    return true;
+  }
+  return false;
+}
+
+ctx.fillStyle="green";
+ctx.lineWidth=5;
+
+var draw=()=>{
+  ctx.clearRect(-CSIZE,-CSIZE,2*CSIZE,2*CSIZE);
+  let grown=0;
+  for (let i=0; i<curves.length; i++) {
+    if (curves[i].drawCurve()) grown++;
+  }
+  drawPoint(0,0,"silver");
+  return grown;
+}
+
+var stopped=true;
+var start=()=>{
+  if (stopped) { 
+    stopped=false;
+    requestAnimationFrame(animate);
+  } else stopped=true;
+}
+body.addEventListener("click", start, false);
+
+var t=0;
+var inc=3;
+var animate=()=>{
+  if (stopped) return;
+  t+=inc;
+  if (!draw() || t<0) {
+    if (inc==3) inc=-8;
+    else { 
+      ctx.strokeStyle="hsla("+getRandomInt(0,360)+",90%,60%,0.6)";
+      inc=3; 
+      t=0; 
+      eg=Math.random()<0.3;
+      setCircles();
+    }
+  }
+  requestAnimationFrame(animate);
+}
+
+var hue=getRandomInt(0,360);
+var ca=[new Circle(0,0,0,0,50,0,0)];
+
+var curves=[];
+
+var setCircles=()=>{
+  ca=[new Circle(0,0,0,0,50,0,0)];
+  for (let i=0; i<2000; i++) {
+    let r=10;
+    if (i<20) r=42;
+    else if (i<100) r=34;
+    else if (i<300) r=26;
+    else if (i<1000) r=18;
+    grow(r);
+  }
+  curves=[];
+  for (let i=0; i<ca.length; i++) {
+    if (ca[i].c.length==0) {
+      var nc=new Curve();
+      nc.car=[ca[i]];
+      nc.addCurveCircle(ca[i]);
+      nc.setPath();
+      curves.push(nc)
+    }
+  }
+}
+
+onresize();
+
+setCircles();
+ctx.strokeStyle="hsla("+getRandomInt(0,360)+",90%,60%,0.6)";
+
+start();
+</script>	
+<br>
+<br>
 <!-- Clock -->
-<div class="w3-xxxlarge w3-center w3-transparent" id="txt">
-</div>
+<style>
+:root {
+	--hue: 223;
+	--bg: hsl(var(--hue),90%,90%);
+	--fg: hsl(var(--hue),10%,10%);
+	--primary: hsl(var(--hue),90%,55%);
+	--trans-dur: 0.3s;
+	font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1280 - 320));
+}
+.goal {
+	font: 1em/1.5 "DM Sans", sans-serif;
+	display: grid;
+	place-items: center;
+	transition:
+		background-color var(--trans-dur),
+		color var(--trans-dur);
+}
 
-      <script src=
-"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    </script>
-     
+.clock {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.clock__block {
+	background-color: hsl(var(--hue),10%,90%);
+	border-radius: 0.5rem;
+	box-shadow: 0 1rem 2rem hsla(var(--hue),90%,50%,0.3);
+	font-size: 3em;
+	line-height: 2;
+	margin: 0.75rem;
+	overflow: hidden;
+	text-align: center;
+	width: 6rem;
+	height: 6rem;
+	transition:
+		background-color var(--trans-dur),
+		box-shadow var(--trans-dur);
+}
+.clock__block--small {
+	border-radius: 0.25rem;
+	box-shadow: 0 0.5rem 2rem hsla(var(--hue),90%,50%,0.3);
+	font-size: 1em;
+	line-height: 3;
+	width: 3rem;
+	height: 3rem;
+}
+.clock__colon {
+	display: none;
+	font-size: 2em;
+	opacity: 0.5;
+	position: relative;
+}
+.clock__colon:before,
+.clock__colon:after {
+	background-color: currentColor;
+	border-radius: 50%;
+	content: "";
+	display: block;
+	position: absolute;
+	top: -0.05em;
+	left: -0.05em;
+	width: 0.1em;
+	height: 0.1em;
+	transition: background-color var(--trans-dur);
+}
+.clock__colon:before {
+	transform: translateY(-200%);
+}
+.clock__colon:after {
+	transform: translateY(200%);	
+}
+.clock__digit-group {
+	display: flex;
+	flex-direction: column-reverse;
+}
+.clock__digits {
+	width: 100%;
+	height: 100%;
+}
+.clock__block--bounce {
+	animation: bounce 0.75s; 
+}
+.clock__block--bounce .clock__digit-group {
+	animation: roll 0.75s ease-in-out forwards; 
+	transform: translateY(-50%);
+}
+.clock__block--delay1,
+.clock__block--delay1 .clock__digit-group {
+	animation-delay: 0.1s;
+}
+.clock__block--delay2,
+.clock__block--delay2 .clock__digit-group {
+	animation-delay: 0.2s;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: hsl(var(--hue),10%,10%);
+		--fg: hsl(var(--hue),10%,90%);
+	}
+	.clock__block {
+		background-color: hsl(var(--hue),90%,40%);
+		box-shadow: 0 1rem 2rem hsla(var(--hue),90%,60%,0.4);
+	}
+	.clock__block--small {
+		box-shadow: 0 0.5rem 2rem hsla(var(--hue),90%,60%,0.4);
+	}
+}
+
+/* Beyond mobile */
+@media (min-width: 768px) {
+	.clock {
+		flex-direction: row;
+	}
+	.clock__colon {
+		display: inherit;
+	}
+}
+
+/* Animations */
+@keyframes bounce {
+	from,
+	to {
+		animation-timing-function: ease-in;
+		transform: translateY(0);
+	}
+	50% {
+		animation-timing-function: ease-out;
+		transform: translateY(15%);
+	}
+}
+@keyframes roll {
+	from {
+		transform: translateY(-50%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+</style>
+<div class="goal">
+<div class="clock" aria-label="00:00:00 AM">
+	<div class="clock__block clock__block--delay2" aria-hidden="true" data-time-group>
+		<div class="clock__digit-group">
+			<div class="clock__digits" data-time="a">00</div>
+			<div class="clock__digits" data-time="b">00</div>
+		</div>
+	</div>
+	<div class="clock__colon"></div>
+	<div class="clock__block clock__block--delay1" aria-hidden="true" data-time-group>
+		<div class="clock__digit-group">
+			<div class="clock__digits" data-time="a">00</div>
+			<div class="clock__digits" data-time="b">00</div>
+		</div>
+	</div>
+	<div class="clock__colon"></div>
+	<div class="clock__block" aria-hidden="true" data-time-group>
+		<div class="clock__digit-group">
+			<div class="clock__digits" data-time="a">00</div>
+			<div class="clock__digits" data-time="b">00</div>
+		</div>
+	</div>
+	<div class="clock__block clock__block--delay2 clock__block--small" aria-hidden="true" data-time-group>
+		<div class="clock__digit-group">
+			<div class="clock__digits" data-time="a">PM</div>
+			<div class="clock__digits" data-time="b">AM</div>
+		</div>
+	</div>
+</div>
+</div>
+<script>
+    window.addEventListener("DOMContentLoaded",() => {
+	const clock = new BouncyBlockClock(".clock");
+});
+
+class BouncyBlockClock {
+	constructor(qs) {
+		this.el = document.querySelector(qs);
+		this.time = { a: [], b: [] };
+		this.rollClass = "clock__block--bounce";
+		this.digitsTimeout = null;
+		this.rollTimeout = null;
+		this.mod = 0 * 60 * 1000;
+
+		this.loop();
+	}
+	animateDigits() {
+		const groups = this.el.querySelectorAll("[data-time-group]");
+
+		Array.from(groups).forEach((group,i) => {
+			const { a, b } = this.time;
+
+			if (a[i] !== b[i]) group.classList.add(this.rollClass);
+		});
+
+		clearTimeout(this.rollTimeout);
+		this.rollTimeout = setTimeout(this.removeAnimations.bind(this),900);
+	}
+	displayTime() {
+		// screen reader time
+		const timeDigits = [...this.time.b];
+		const ap = timeDigits.pop();
+
+		this.el.ariaLabel = `${timeDigits.join(":")} ${ap}`;
+
+		// displayed time
+		Object.keys(this.time).forEach(letter => {
+			const letterEls = this.el.querySelectorAll(`[data-time="${letter}"]`);
+
+			Array.from(letterEls).forEach((el,i) => {
+				el.textContent = this.time[letter][i];
+			});
+		});
+	}
+	loop() {
+		this.updateTime();
+		this.displayTime();
+		this.animateDigits();
+		this.tick();
+	}
+	removeAnimations() {
+		const groups = this.el.querySelectorAll("[data-time-group]");
+	
+		Array.from(groups).forEach(group => {
+			group.classList.remove(this.rollClass);
+		});
+	}
+	tick() {
+		clearTimeout(this.digitsTimeout);
+		this.digitsTimeout = setTimeout(this.loop.bind(this),1e3);	
+	}
+	updateTime() {
+		const rawDate = new Date();
+		const date = new Date(Math.ceil(rawDate.getTime() / 1e3) * 1e3 + this.mod);
+		let h = date.getHours();
+		const m = date.getMinutes();
+		const s = date.getSeconds();
+		const ap = h < 12 ? "AM" : "PM";
+
+		if (h === 0) h = 12;
+		if (h > 12) h -= 12;
+
+		this.time.a = [...this.time.b];
+		this.time.b = [
+			(h < 10 ? `0${h}` : `${h}`),
+			(m < 10 ? `0${m}` : `${m}`),
+			(s < 10 ? `0${s}` : `${s}`),
+			ap
+		];
+
+		if (!this.time.a.length) this.time.a = [...this.time.b];
+	}
+}
+</script>
+<!--Ip Address-->
       <script>
      
     /* Add "https://api.ipify.org?format=json" statement
